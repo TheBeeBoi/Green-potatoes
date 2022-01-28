@@ -1,6 +1,6 @@
 const http = require("http"),
 	get = require("./get"),
-	post = require("./Experiments/Mimed HTTP Server/post")
+	post = require("./post")
 
 const srv = http.createServer(function (req, res) {
 	if (req.method === "GET") {

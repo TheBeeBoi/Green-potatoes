@@ -1,7 +1,26 @@
 tasks:
   - init: |
-      echo 'TODO: build project'
+      for d in */ ; do
+        npm i
+      done
     command: |
-      echo 'TODO: start app'
+      clear
+      echo "Hey!"
+      echo "Just ignore me.."
+      echo "I'm just here to run commands for you."
+      sleep 2
+      clear
+      echo "I'll run fish"
+      sleep 1
+      clear && echo "I'll run fish."
+      sleep 1
+      clear && echo "I'll run fish.."
+      sleep 1
+      clear && echo "I'll run fish..."
+      sleep 1
+      clear
+      echo "Here ya go!"
+      fish
+
 image:
   file: Dockerfile
