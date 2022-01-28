@@ -42,7 +42,7 @@ tasks:
       echo "Hey!"
       echo "Just ignore me.."
       echo "I'm just here to run commands for you."
-      sleep 2
+      sleep 4
       clear
       echo "I'll run fish"
       sleep 1
