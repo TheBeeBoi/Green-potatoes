@@ -56,5 +56,5 @@ tasks:
       echo "Here ya go!"
       fish
 
-# image:
-#   file: Dockerfile
+image:
+  file: Dockerfile
