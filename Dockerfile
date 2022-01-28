@@ -92,7 +92,13 @@ RUN apk add --no-cache --virtual .build-deps-yarn curl gnupg tar \
   # smoke test
   && yarn --version
 
-COPY docker-entrypoint.sh /usr/local/bin/
+RUN echo "#!/bin/sh" > /docker-entrypoint.sh
+RUN echo "set -e" >> /docker-entrypoint.sh
+RUN echo "if [ "${1#-}" != "${1}" ] || [ -z "$(command -v "${1}")" ] || { [ -f "${1}" ] && ! [ -x "${1}" ]; }; then" >> /docker-entrypoint.sh
+RUN echo "set -- node '$@'" >> /docker-entrypoint.sh
+RUN echo "fi" >> /docker-entrypoint.sh
+RUN echo "exec '$@'" >> /docker-entrypoint.sh
+
 ENTRYPOINT ["docker-entrypoint.sh"]
 
 CMD [ "node" ]
