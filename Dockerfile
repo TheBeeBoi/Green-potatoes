@@ -98,6 +98,14 @@ RUN echo "if [ "${1#-}" != "${1}" ] || [ -z "$(command -v "${1}")" ] || { [ -f "
 RUN echo "set -- node '$@'" >> /docker-entrypoint.sh
 RUN echo "fi" >> /docker-entrypoint.sh
 RUN echo "exec '$@'" >> /docker-entrypoint.sh
+RUN apk add shadow --no-cache
+RUN adduser \
+    --disabled-password \
+    --gecos "" \
+    --home "$(pwd)" \
+    --ingroup "$USER" \
+    --uid "$UID" \
+    "$USER"
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
