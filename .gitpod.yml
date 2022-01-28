@@ -4,6 +4,28 @@ tasks:
         npm i
       done
     command: |
+      echo "Loading"
+      sleep 1
+      clear && echo "Loading."
+      sleep 1
+      clear && echo "Loading.."
+      sleep 1
+      clear && echo "Loading..."
+      sleep 1
+      clear && echo "Loading.."
+      sleep 1
+      clear && echo "Loading."
+      sleep 1
+      clear && echo "Loading.."
+      sleep 1
+      clear && echo "Loading..."
+      sleep 1
+      clear && echo "Loading.."
+      sleep 1
+      clear && echo "Loading."
+      sleep 1
+      clear && echo "Loading"
+      sleep 1
       clear
       echo "Hey!"
       echo "Just ignore me.."
