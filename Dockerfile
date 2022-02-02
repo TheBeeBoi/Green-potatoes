@@ -101,11 +101,8 @@ RUN echo "exec '$@'" >> /docker-entrypoint.sh
 RUN apk add shadow --no-cache
 RUN adduser \
     --disabled-password \
-    --gecos "" \
-    --home "$(pwd)" \
-    --ingroup "$USER" \
-    --uid "$UID" \
-    "$USER"
+    --home "/home/gitpod" \
+    "gitpod"
 
 ENTRYPOINT ["docker-entrypoint.sh"]
 
