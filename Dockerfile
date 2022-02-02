@@ -99,9 +99,13 @@ RUN echo "set -- node '$@'" >> /docker-entrypoint.sh
 RUN echo "fi" >> /docker-entrypoint.sh
 RUN echo "exec '$@'" >> /docker-entrypoint.sh
 RUN apk add shadow --no-cache
+ENV GID 69420
+
 RUN adduser \
     --disabled-password \
     --home "/home/gitpod" \
+    --ingroup "gitpod" \
+    --uid "42069" \
     "gitpod"
 
 ENTRYPOINT ["docker-entrypoint.sh"]
