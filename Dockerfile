@@ -64,8 +64,6 @@ RUN set -ex \
   # smoke test
   && yarn --version
 
-COPY docker-entrypoint.sh /usr/local/bin/
-
 RUN echo "#!/bin/sh" > /docker-entrypoint.sh
 RUN echo "set -e" >> /docker-entrypoint.sh
 RUN echo "if [ "${1#-}" != "${1}" ] || [ -z "$(command -v "${1}")" ] || { [ -f "${1}" ] && ! [ -x "${1}" ]; }; then" >> /docker-entrypoint.sh
@@ -91,6 +89,6 @@ RUN sudo echo "Running 'sudo' for Gitpod: success" && \
     mkdir -p /home/gitpod/.bashrc.d && \
     (echo; echo "for i in \$(ls -A \$HOME/.bashrc.d/); do source \$HOME/.bashrc.d/\$i; done"; echo) >> /home/gitpod/.bashrc
 
-ENTRYPOINT ["docker-entrypoint.sh"]
+ENTRYPOINT ["/docker-entrypoint.sh"]
 
 CMD [ "node" ]
